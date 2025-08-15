@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إدخال OTP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>إدخل OTP</h2>
+    <form action="/verify-otp" method="POST">
+        <input type="hidden" name="phone" value="">
+        <input type="number" name="otp" placeholder="OTP" required>
+        <button type="submit">تحقق</button>
+    </form>
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const phone = urlParams.get('phone');
+    document.querySelector('input[name="phone"]').value = phone;
+</script>
+</body>
+</html>
