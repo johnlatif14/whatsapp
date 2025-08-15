@@ -2,20 +2,29 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>إدخال OTP</title>
+<title>التحقق من OTP</title>
 <style>
-body { font-family: Arial, sans-serif; text-align: center; padding-top: 100px; background-color: #f0f2f5; }
-form { display: inline-block; margin-top: 50px; }
-input, button { padding: 10px; margin: 5px; font-size: 16px; }
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f2f5;
+}
 </style>
 </head>
 <body>
-<h1>أدخل OTP</h1>
+
+<h2>أدخل رمز OTP المرسل إليك</h2>
+
 <form action="/verify-otp" method="POST">
-  <input type="text" name="otp" placeholder="OTP" required>
-  <input type="hidden" name="phone" value="{{phone}}">
+  <input type="hidden" name="phone" value="">
+  <input type="text" name="otp" placeholder="رمز OTP" required>
   <button type="submit">تحقق</button>
 </form>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  document.querySelector('input[name="phone"]').value = params.get('phone') || '';
+</script>
+
 </body>
 </html>
